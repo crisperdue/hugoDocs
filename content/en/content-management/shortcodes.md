@@ -62,7 +62,7 @@ You can pass multiple lines as parameters to a shortcode by using raw string lit
 and a new line with a "quoted string".` */>}}
 ```
 
-### Shortcodes with Markdown
+### Shortcodes with Markdown Content
 
 In Hugo `0.55` we changed how the `%` delimiter works. Shortcodes using the `%` as the outer-most delimiter will now be fully rendered when sent to the content renderer. They can be part of the generated table of contents, footnotes, etc.
 
@@ -73,7 +73,7 @@ If you want the old behavior, you can put the following line in the start of you
 ```
 
 
-### Shortcodes Without Markdown
+### Shortcodes Without Markdown Rendering
 
 The `<` character indicates that the shortcode's inner content does *not* need further rendering, e.g. with Markdown. Often shortcodes without markdown include internal HTML:
 
@@ -91,7 +91,7 @@ Hugo ships with a set of predefined shortcodes that represent very common usage.
 
 ### `figure`
 
-`figure` is an extension of the image syntax in markdown, which does not provide a shorthand for the more semantic [HTML5 `<figure>` element][figureelement].
+`figure` generates an `img` element wrapped in a `figure`.  Markdown by itself does not provide a syntax for the more semantic [HTML5 `<figure>` element][figureelement].
 
 The `figure` shortcode can use the following named parameters:
 
