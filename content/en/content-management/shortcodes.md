@@ -33,7 +33,7 @@ In addition to cleaner Markdown, shortcodes can be updated any time to reflect n
 
 {{< youtube 2xkNJL4gJ9E >}}
 
-In your content files, a shortcode can be called by calling `{{%/* shortcodename parameters */%}}`. Shortcode parameters are space delimited, and parameters with internal spaces can be quoted.
+In your content files, a shortcode can be called by calling `{{%/* shortcodename parameters */%}}` or `{{</* shortcodename parameters */>}}`. Shortcode parameters are space delimited, and parameters with internal spaces can be quoted.
 
 The first word in the shortcode declaration is always the name of the shortcode. Parameters follow the name. Depending upon how the shortcode is defined, the parameters may be named, positional, or both, although you can't mix parameter types in a single call. The format for named parameters models that of HTML with the format `name="value"`.
 
@@ -42,11 +42,11 @@ Some shortcodes use or require closing shortcodes. Again like HTML, the opening 
 Here are two examples of paired shortcodes:
 
 ```
-{{%/* mdshortcode */%}}Stuff to `process` in the *center*.{{%/* /mdshortcode */%}}
+{{%/* mdshortcode */%}}Text to `process` with Markdown in the *center*.{{%/* /mdshortcode */%}}
 ```
 
 ```
-{{</* highlight go */>}} A bunch of code here {{</* /highlight */>}}
+{{</* highlight go */>}}Text to not process with Markdown here {{</* /highlight */>}}
 ```
 
 The examples above use two different delimiters, the difference being the `%` character in the first and the `<>` characters in the second.
@@ -75,7 +75,7 @@ If you want the old behavior, you can put the following line in the start of you
 
 ### Shortcodes Without Markdown
 
-The `<` character indicates that the shortcode's inner content does *not* need further rendering. Often shortcodes without markdown include internal HTML:
+The `<` character indicates that the shortcode's inner content does *not* need further rendering, e.g. with Markdown. Often shortcodes without markdown include internal HTML:
 
 ```
 {{</* myshortcode */>}}<p>Hello <strong>World!</strong></p>{{</* /myshortcode */>}}
